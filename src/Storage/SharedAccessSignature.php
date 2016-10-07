@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Azure\Storage;
+namespace Azure\Storage;
 
 class SharedAccessSignature {
 
@@ -38,8 +38,8 @@ class SharedAccessSignature {
 
     public function __construct($container, $resource = null, array $options = [], $expiresIn=86400)
     {
-        $this->accountName = env('AZURE_STORAGE_ACCOUNT_NAME');
-        $this->accountKey = env('AZURE_STORAGE_ACCOUNT_KEY');
+        $this->accountName = config('azure.account_name');
+        $this->accountKey = config('azure.account_key');
         $this->container = $container;
         $this->resourceName = $resource;
         $this->setOptions($options);
